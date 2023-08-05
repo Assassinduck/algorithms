@@ -12,7 +12,7 @@ import java.util.*;
  *
  * Created by arcuri82 on 25-Oct-17.
  */
-public class UndirectedGraph<V> implements  Graph<V>{
+public class UndirectedGraph<V> implements Graph<V>{
 
     /**
      * Key -> a vertex in the graph
@@ -94,7 +94,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
 
         Objects.requireNonNull(vertex);
 
-        if(! graph.containsKey(vertex)){
+        if(!graph.containsKey(vertex)){
             //nothing to do
             return;
         }
@@ -122,7 +122,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
     @Override
     public List<V> findPathDFS(V start, V end) {
 
-        if(! graph.containsKey(start) || ! graph.containsKey(end)){
+        if(!graph.containsKey(start) || !graph.containsKey(end)){
             /*
                 no point in searching if either start or end are not
                 in the graph.
@@ -177,7 +177,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
 
             dfs(alreadyVisited, stack, connected, end);
 
-            if(! isPathTo(stack, end)){
+            if(!isPathTo(stack, end)){
                 //backtrack
                 stack.pop();
             } else {
@@ -195,7 +195,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
 
         // same initial checks as in DFS
 
-        if(! graph.containsKey(start) || ! graph.containsKey(end)){
+        if(!graph.containsKey(start) || !graph.containsKey(end)){
             return null;
         }
 
@@ -256,7 +256,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
     @Override
     public Set<V> findConnected(V vertex) {
 
-        if(! graph.containsKey(vertex)){
+        if(!graph.containsKey(vertex)){
             return null;
         }
 
@@ -298,7 +298,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
          */
 
         graph.get(vertex).stream()
-                .filter(c -> ! connected.contains(c))
+                .filter(c -> !connected.contains(c))
                 .forEach(c -> findConnected(connected, c));
     }
 

@@ -29,10 +29,10 @@ public class MyArrayListString implements MyListString {
 
     @Override
     public String get(int index) {
-        if(index < 0 || index >= size){
+      if(index < 0 || index >= size){
             //some input validation
             return null;
-        }
+        }  
         return data[index];
     }
 

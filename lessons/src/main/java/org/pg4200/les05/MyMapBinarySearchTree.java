@@ -52,19 +52,19 @@ public class MyMapBinarySearchTree<K extends Comparable<K>, V> implements MyMapT
             return node;
         }
 
-        int cmp = key.compareTo(subtree.key);
+        int compareKey = key.compareTo(subtree.key);
 
-        if (cmp < 0) {
+        if (compareKey < 0) {
             subtree.left = put(key, value, subtree.left);
             return subtree;
         }
 
-        if (cmp > 0) {
+        if (compareKey > 0) {
             subtree.right = put(key, value, subtree.right);
             return subtree;
         }
 
-        assert cmp == 0;
+        assert compareKey == 0;
         subtree.value = value;
 
         return subtree;
@@ -93,14 +93,14 @@ public class MyMapBinarySearchTree<K extends Comparable<K>, V> implements MyMapT
             return null;
         }
 
-        int cmp = key.compareTo(subtreeRoot.key);
+        int compareKey = key.compareTo(subtreeRoot.key);
 
-        if (cmp < 0) {
+        if (compareKey < 0) {
             subtreeRoot.left = delete(key, subtreeRoot.left);
             return subtreeRoot;
         }
 
-        if (cmp > 0) {
+        if (compareKey > 0) {
             subtreeRoot.right = delete(key, subtreeRoot.right);
             return subtreeRoot;
         }
@@ -110,7 +110,7 @@ public class MyMapBinarySearchTree<K extends Comparable<K>, V> implements MyMapT
             How to delete this node will depend on
             how many children it has
          */
-        assert cmp == 0;
+        assert compareKey == 0;
 
         size--;
 
@@ -183,14 +183,14 @@ public class MyMapBinarySearchTree<K extends Comparable<K>, V> implements MyMapT
             return null;
         }
 
-        int cmp = key.compareTo(subtreeRoot.key);
+        int compareKey = key.compareTo(subtreeRoot.key);
 
-        if (cmp == 0) {
+        if (compareKey == 0) {
             return subtreeRoot.value;
-        } else if (cmp > 0) {
+        } else if (compareKey > 0) {
             //look at greater values in the right subtree
             return get(key, subtreeRoot.right);
-        } else if (cmp < 0) {
+        } else if (compareKey < 0) {
             //look at smaller values in the left subtree
             return get(key, subtreeRoot.left);
         }

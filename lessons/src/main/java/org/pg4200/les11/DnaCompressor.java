@@ -12,10 +12,10 @@ public class DnaCompressor {
 
         BitWriter writer = new BitWriter();
 
-        /*
-            Essential that we write the length of the sequence.
-            Otherwise, the 00 in the last byte would be undefined,
-            ie they could be just padding or actual T values.
+            /*
+                Essential that we write the length of the sequence.
+                Otherwise, the 00 in the last byte would be undefined,
+                ie they could be just padding or actual T values.
 
             As a byte has 8 bits, and we use 2 bits per letter, each
             byte can contain 4 letters.
@@ -53,7 +53,7 @@ public class DnaCompressor {
 
         BitReader reader = new BitReader(data);
 
-        int n = reader.readInt();
+            int n = reader.readInt();
 
         StringBuffer buffer = new StringBuffer(n);
 

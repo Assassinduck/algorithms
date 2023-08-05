@@ -43,9 +43,9 @@ public class GenericExample<T> {
     }
 
     /*
-        Here we create a MyPair object, where the element x
+        Here we create a MyPair object, where the element t
         has to have the same type bound to the generic in the
-        class GenericExample, whereas y could be anything
+        class GenericExample, whereas z could be anything
      */
     public <Z> MyPair<T,Z> createPair(T t, Z z){
 
@@ -86,4 +86,8 @@ public class GenericExample<T> {
         }
     }
 
+    
+
 }
+
+

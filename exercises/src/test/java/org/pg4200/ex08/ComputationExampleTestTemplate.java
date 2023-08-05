@@ -60,7 +60,7 @@ public  abstract class ComputationExampleTestTemplate {
         Book ok = new Book("title", 2012, Arrays.asList(first, second));
         Book tooEarly = new Book("title", 1998, Arrays.asList(first, second));
         Book tooLate = new Book("title", 2018, Arrays.asList(first, second));
-        Book onlyOneAuthor = new Book("title", 2012, Arrays.asList(first));
+        Book onlyOneAuthor = new Book("title", 2012, List.of(first));
 
 
         List<String> list = example.compute(Arrays.asList(tooEarly, ok, tooLate, onlyOneAuthor));

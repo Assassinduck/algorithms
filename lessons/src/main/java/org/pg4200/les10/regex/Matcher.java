@@ -167,7 +167,7 @@ public class Matcher {
         int acceptanceState = regex.length();
 
         /*
-            Check what we can reach in the FSM from the beginning
+            Check what we can reach AS in the FSM from the beginning
             without even needed to read any char from the text.
             We need to keep track of all possible non-deterministic
             paths we can take on the FSM.

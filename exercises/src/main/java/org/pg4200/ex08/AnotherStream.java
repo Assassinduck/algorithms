@@ -34,7 +34,7 @@ public interface AnotherStream<T> {
 
     /**
      *  Performs a reduction on the elements of this stream, using an associative accumulation function,
-     *  and returns an Optional describing the reduced value, if any (ie, if the stream as at least one element).
+     *  and returns an Optional describing the reduced value, if any (ie, if the stream has at least one element).
      *  This is equivalent to take the first element, apply accumulator with second element, get result
      *  and apply accumulator with 3rd element, then take this result and accumulate with 4th element, and so on.
      */

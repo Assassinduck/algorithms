@@ -21,7 +21,9 @@ public class Sum {
         int pairs = 0;
 
         for(int i=0; i<array.length; i++){
+            System.out.println("i: "+i);
             for(int j=0; j<array.length; j++){
+            System.out.println("j: "+j);
                 if(i!=j && array[i] == array[j]){
                     pairs++;
                 }

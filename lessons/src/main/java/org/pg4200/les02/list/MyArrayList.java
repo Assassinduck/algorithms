@@ -74,6 +74,7 @@ public class MyArrayList<T> implements MyList<T> {
             before we shift. That is the reason why we must start from the end
             of the the list
          */
+        
         for(int j=size-1; j>=index; j--){
             data[j+1] = data[j];
         }

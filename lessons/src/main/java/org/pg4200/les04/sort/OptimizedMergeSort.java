@@ -1,17 +1,14 @@
 package org.pg4200.les04.sort;
 
-import java.util.Arrays;
-
-// WARNING: this is one of the 12 classes you need to study and know by heart
-
-
 import org.pg4200.les03.sort.MySort;
-import org.pg4200.les03.sort.OptimizedBubbleSort;
+
+import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Created by arcuri82 on 21-Aug-17.
  */
-public class MergeSort implements MySort {
+public class OptimizedMergeSort implements MySort {
 
 
     @Override
@@ -52,7 +49,6 @@ public class MergeSort implements MySort {
     }
 
     private <T extends Comparable<T>> void mergesort(int low, int high, T[] array, T[] buffer) {
-
         if (low >= high) {
             /*
                 This means we are in a subarea of array with 1 or less elements.
@@ -63,7 +59,6 @@ public class MergeSort implements MySort {
         }
 
         int middle = low + (high - low) / 2;
-
 
 
         mergesort(low, middle, array, buffer);
@@ -78,6 +73,7 @@ public class MergeSort implements MySort {
     }
 
     private <T extends Comparable<T>> void merge(int low, int middle, int high, T[] array, T[] buffer) {
+        int bubbleLimit = 4;
 
         for (int i = low; i <= high; i++) {
             buffer[i] = array[i];
@@ -85,6 +81,16 @@ public class MergeSort implements MySort {
 
         System.out.println("buffer for merge: "+Arrays.toString(buffer));
         System.out.println("array for merge: "+Arrays.toString(array));
+
+        int lenghtOfSubArray = (high - low) + 1;
+        System.out.println( "lenghtOfSubArray: " + lenghtOfSubArray);
+
+        if(lenghtOfSubArray < bubbleLimit ){
+            System.out.println("using bubble");
+            BubbleSortForMerge(array, low,high);
+            System.out.println("subArray after bubble" + Arrays.toString(array));
+            return;
+        }
 
 
         //index over the left half, before middle
@@ -130,4 +136,43 @@ public class MergeSort implements MySort {
             }
         }
     }
+
+    private static <T extends Comparable<T>> void BubbleSortForMerge(T[] array, int start, int limit) {
+
+        Comparator<T> arrayComp = (o1, o2) -> {
+            if (o1.compareTo(o2) > 0) {
+                return 1;
+            }
+            if (o1.compareTo(o2) < 0) {
+                return -1;
+            }
+            return 0;
+        };
+
+        boolean swapped = true;
+
+        while (swapped) {
+
+            swapped = false;
+
+
+            for (int i = start; i < limit; i++) {
+                int j = i + 1;
+
+                if (arrayComp.compare(array[i], array[j]) > 0) {
+
+
+                    T temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                    swapped = true;
+                }
+
+            }
+
+        }
+
+    }
 }
+
+

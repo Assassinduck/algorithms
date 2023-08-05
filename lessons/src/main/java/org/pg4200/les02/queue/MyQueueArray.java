@@ -78,7 +78,7 @@ public class MyQueueArray<T> implements MyQueue<T>{
 
                     Note: the choice of "5" is arbitrary...
                  */
-                int  size = size();
+                int size = size();
                 for(int i=0; i<size; i++){
                     data[i] = data[i + head];
                 }
@@ -136,6 +136,8 @@ public class MyQueueArray<T> implements MyQueue<T>{
 
         return (T) data[head];
     }
+
+    
 
     @Override
     public int size() {

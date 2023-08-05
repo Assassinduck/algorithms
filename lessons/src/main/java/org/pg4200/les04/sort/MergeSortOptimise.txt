@@ -1,0 +1,6 @@
+c:
+
+The benefits of using bubble sort on smaller subsets of the array can be that it produces
+less overhead than Merge sort, as Merge has to create subArrays and merge them back together.
+The downsides of bubblesort dissapear when the input is really small, and it becomes overall less memory intensive.
+While it is not as generally efficient as merge sort, it is still a good option for smaller working sets.
